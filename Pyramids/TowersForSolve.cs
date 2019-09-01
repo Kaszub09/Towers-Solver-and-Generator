@@ -163,7 +163,9 @@ namespace Towers
 
         private void TryToSolveSmart()
         {
-            while (FillOnlyPossibleInRow() || FillOnlyPossibleInPlace()|| TryToEliminateImpossible()) ; 
+            while (FillOnlyPossibleInRow() || FillOnlyPossibleInPlace()|| TryToEliminateImpossible())
+                if (token.IsCancellationRequested)
+                    return;
         }
 
         private bool FillOnlyPossibleInRow()
@@ -333,6 +335,9 @@ namespace Towers
 
         private bool IsRowSolvable(int i, bool vertical, int z)
         {
+            if (token.IsCancellationRequested)
+                return true;
+
             if (z >= size)
             {
                 if (vertical)

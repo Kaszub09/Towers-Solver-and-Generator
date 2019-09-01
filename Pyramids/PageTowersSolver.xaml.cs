@@ -164,11 +164,16 @@ namespace Towers
             wasCancelled = false;
             cancellationTokenSource = new CancellationTokenSource();
             towers.token = cancellationTokenSource.Token;
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+            textBoxInfo.Text = "Solving...";
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
             ChangeButtonState(false);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            
             solved = await Task.Factory.StartNew(() => towers.Solve());
-            ChangeButtonState(true);
+            
             watch.Stop();
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+            ChangeButtonState(true);
             if (solved)
             {              
                 textBoxInfo.Text = watch.Elapsed.ToString();
@@ -236,7 +241,6 @@ namespace Towers
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             cancellationTokenSource.Cancel();
-            cancellationTokenSource.Dispose();
             wasCancelled = true;
         }
 
