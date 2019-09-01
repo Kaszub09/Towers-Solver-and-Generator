@@ -1,0 +1,38 @@
+﻿<Page x:Class="Pyramids.PagePyramidGenerator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pyramids"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="678.2"
+      Title="PagePyramidGenerator">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="buttonDecrease" Content="-" HorizontalAlignment="Right" Margin="0,27,79,0" VerticalAlignment="Top" Width="64" Click="ButtonDecrease_Click"/>
+        <Button x:Name="buttonIncrease" Content="+" HorizontalAlignment="Right" Margin="0,27,10,0" VerticalAlignment="Top" Width="62" Click="ButtonIncrease_Click"/>
+        <Label x:Name="labelSize" Content="Label" Margin="0,27,148,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="60"/>
+
+        <Grid x:Name="gridMainPanel" Margin="10,10,237,9.6"/>
+        <Label Content="Size of the board:" Margin="0,1,9.6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="198"/>
+        <Label Content="Change numbers size" HorizontalAlignment="Right" Margin="0,169,84.4,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonDecreasNumbersSize" Content="-" HorizontalAlignment="Right" Margin="0,171,60.4,0" VerticalAlignment="Top" Width="19" Click="ButtonDecreasNumbersSize_Click"/>
+        <Button x:Name="buttonIncreaseNumbersSize" Content="+" HorizontalAlignment="Right" Margin="0,171,36.4,0" VerticalAlignment="Top" Width="19" Click="ButtonIncreaseNumbersSize_Click"/>
+        <Button x:Name="buttonWhatArePyramids" Content="What are pyramids?" HorizontalAlignment="Right" Margin="0,200,10.4,0" VerticalAlignment="Top" Width="198" Click="ButtonWhatArePyramids_Click"/>
+        <Button x:Name="buttonChangeToSolver" Content="Change to solver" HorizontalAlignment="Right" Margin="0,248,10.4,0" VerticalAlignment="Top" Width="117" Click="ButtonChangeToSolver_Click" Height="67"/>
+        <Button x:Name="buttonPermutateCol" Content="Permutate Columns" HorizontalAlignment="Right" Margin="0,58,93.4,0" VerticalAlignment="Top" Width="114" Click="ButtonPermutateCol_Click"/>
+        <Button x:Name="buttonPermutateRow" Content="Permutate Rows" HorizontalAlignment="Right" Margin="0,85,94.4,0" VerticalAlignment="Top" Width="114" Click="ButtonPermutateRow_Click"/>
+        <Button x:Name="buttonDeleteNumber" Content="Delete Number" HorizontalAlignment="Right" Margin="0,112,94.4,0" VerticalAlignment="Top" Width="114" Click="ButtonDeleteNumber_Click"/>
+        <Button x:Name="buttonBackNumber" Content="Back" HorizontalAlignment="Right" Margin="0,112,10.4,0" VerticalAlignment="Top" Width="78" Height="22" Click="ButtonBackNumber_Click"/>
+        <Button x:Name="buttonBackPermutate" Content="Back" HorizontalAlignment="Right" Margin="0,58,10.4,0" VerticalAlignment="Top" Width="78" Height="49" Click="ButtonBackPermutate_Click"/>
+        <Button x:Name="buttonClearRememberedPermutations" Content="Clear " HorizontalAlignment="Right" Margin="0,139,36.4,0" VerticalAlignment="Top" Width="75" Click="ButtonClearRememberedPermutations_Click" ToolTip="Clear list of remembered permutations (if they occupy too much memory)"/>
+        <CheckBox x:Name="checkboxShowBoard" Content="Show board" HorizontalAlignment="Right" Margin="0,150,113.4,0" VerticalAlignment="Top" Click="CheckboxShowBoard_Click_1" IsChecked="True"/>
+        <Button x:Name="buttonChangeTheme" Content="Change Theme" HorizontalAlignment="Right" Margin="0,0,18.4,23.6" Width="100" Click="ButtonChangeTheme_Click" Height="22" VerticalAlignment="Bottom"/>
+
+
+    </Grid>
+</Page>
