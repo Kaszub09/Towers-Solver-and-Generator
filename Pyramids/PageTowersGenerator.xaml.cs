@@ -12,19 +12,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pyramids
+namespace Towers
 {
-    /// <summary>
-    /// Logika interakcji dla klasy PagePyramidGenerator.xaml
-    /// </summary>
-    public partial class PagePyramidGenerator : Page
+
+    public partial class PageTowersGenerator : Page
     {
         MainWindow parent;
         int size;
         Control[,] listOfControls;
-        PyramidForGenerate pyramid;
+        TowersForGenerate towers;
         bool showBoard = true;
-        public PagePyramidGenerator(MainWindow parent)
+        public PageTowersGenerator(MainWindow parent)
         {          
             InitializeComponent();            
             size = 0;
@@ -40,7 +38,7 @@ namespace Pyramids
                 size--;
                 RedrawPanel();
                 UpdateLabel();
-                pyramid = new PyramidForGenerate(size);
+                towers = new TowersForGenerate(size);
                 UpdateBoard();
             }
         }
@@ -50,7 +48,7 @@ namespace Pyramids
             size++;
             RedrawPanel();
             UpdateLabel();
-            pyramid = new PyramidForGenerate(size);
+            towers = new TowersForGenerate(size);
             UpdateBoard();
 
         }
@@ -122,17 +120,17 @@ namespace Pyramids
                 {
                     for (int j = 0; j < size; j++)
                     {
-                        ((Label)listOfControls[i + 1, j + 1]).Content = showBoard==true? pyramid.GetField(i, j).ToString() : null;
+                        ((Label)listOfControls[i + 1, j + 1]).Content = showBoard==true? towers.GetField(i, j).ToString() : null;
                     }
                 }
 
 
                 for (int i = 0; i < size; i++)
                 {
-                    ((Button)listOfControls[0, i + 1]).Content = pyramid.GetNumber(i, 0) == 0 ? null : pyramid.GetNumber(i, 0).ToString();
-                    ((Button)listOfControls[i + 1, size + 1]).Content = pyramid.GetNumber(i, 1) == 0 ? null : pyramid.GetNumber(i, 1).ToString();
-                    ((Button)listOfControls[size + 1, i + 1]).Content = pyramid.GetNumber(i, 2) == 0 ? null : pyramid.GetNumber(i, 2).ToString();
-                    ((Button)listOfControls[i + 1, 0]).Content = pyramid.GetNumber(i, 3) == 0 ? null : pyramid.GetNumber(i, 3).ToString();
+                    ((Button)listOfControls[0, i + 1]).Content = towers.GetNumber(i, 0) == 0 ? null : towers.GetNumber(i, 0).ToString();
+                    ((Button)listOfControls[i + 1, size + 1]).Content = towers.GetNumber(i, 1) == 0 ? null : towers.GetNumber(i, 1).ToString();
+                    ((Button)listOfControls[size + 1, i + 1]).Content = towers.GetNumber(i, 2) == 0 ? null : towers.GetNumber(i, 2).ToString();
+                    ((Button)listOfControls[i + 1, 0]).Content = towers.GetNumber(i, 3) == 0 ? null : towers.GetNumber(i, 3).ToString();
 
                 }
             
@@ -166,7 +164,7 @@ namespace Pyramids
 
         private void ButtonWhatArePyramids_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.wydawnictwologi.pl/piramida");
+            System.Diagnostics.Process.Start("https://dkmgames.com/Towers/");
         }
 
         private void ButtonChangeToSolver_Click(object sender, RoutedEventArgs e)
@@ -176,31 +174,31 @@ namespace Pyramids
 
         private void ButtonBackPermutate_Click(object sender, RoutedEventArgs e)
         {
-            pyramid.BackLastPermutation();
+            towers.BackLastPermutation();
             UpdateBoard();
         }
 
         private void ButtonBackNumber_Click(object sender, RoutedEventArgs e)
         {
-            pyramid.RestorDeletedNumber();
+            towers.RestorDeletedNumber();
             UpdateBoard();
         }
 
         private void ButtonPermutateCol_Click(object sender, RoutedEventArgs e)
         {
-            pyramid.Permutate(true);
+            towers.Permutate(true);
             UpdateBoard();
         }
 
         private void ButtonPermutateRow_Click(object sender, RoutedEventArgs e)
         {
-            pyramid.Permutate(false);
+            towers.Permutate(false);
             UpdateBoard();
         }
 
         private void ButtonDeleteNumber_Click(object sender, RoutedEventArgs e)
         {
-            pyramid.DeleteRandomNumber();
+            towers.DeleteRandomNumber();
             UpdateBoard();
         }
 
@@ -213,11 +211,11 @@ namespace Pyramids
             {
                 if (((Button)sender).Content != null)
                 {
-                    pyramid.RemoveNumber(y - 1, x == 0 ? 0 : 2);
+                    towers.RemoveNumber(y - 1, x == 0 ? 0 : 2);
                 }
                 else
                 {
-                    pyramid.RestoreNumber(y - 1, x == 0 ? 0 : 2);
+                    towers.RestoreNumber(y - 1, x == 0 ? 0 : 2);
                 }     
                 UpdateBoard();
             }
@@ -225,11 +223,11 @@ namespace Pyramids
             {
                 if (((Button)sender).Content != null)
                 {
-                    pyramid.RemoveNumber(x - 1, y == 0 ? 3 : 1);
+                    towers.RemoveNumber(x - 1, y == 0 ? 3 : 1);
                 }
                 else
                 {
-                    pyramid.RestoreNumber(x - 1, y == 0 ? 3 : 1);
+                    towers.RestoreNumber(x - 1, y == 0 ? 3 : 1);
                 }
                 UpdateBoard();
             }
@@ -238,7 +236,7 @@ namespace Pyramids
 
         private void ButtonClearRememberedPermutations_Click(object sender, RoutedEventArgs e)
         {
-            pyramid.ClearListOfOperations();
+            towers.ClearListOfOperations();
         }
 
 

@@ -1,9 +1,9 @@
-﻿<Page x:Class="Pyramids.PagePyramidSolver"
+﻿<Page x:Class="Towers.PageTowersSolver"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Pyramids"
+      xmlns:local="clr-namespace:Towers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="678.2"
       Title="PagePyramidSolver">
@@ -25,7 +25,7 @@
         <Label Content="Change numbers size" HorizontalAlignment="Right" Margin="0,139,85,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonDecreasNumbersSize" Content="-" HorizontalAlignment="Right" Margin="0,139,61,0" VerticalAlignment="Top" Width="19" Click="ButtonDecreasNumbersSize_Click"/>
         <Button x:Name="buttonIncreaseNumbersSize" Content="+" HorizontalAlignment="Right" Margin="0,139,37,0" VerticalAlignment="Top" Width="19" Click="ButtonIncreaseNumbersSize_Click"/>
-        <Button x:Name="buttonWhatArePyramids" Content="What are pyramids?" HorizontalAlignment="Right" Margin="0,170,16.4,0" VerticalAlignment="Top" Width="198" Click="ButtonWhatArePyramids_Click"/>
+        <Button x:Name="buttonWhatArePyramids" Content="What are towers?" HorizontalAlignment="Right" Margin="0,170,16.4,0" VerticalAlignment="Top" Width="198" Click="ButtonWhatArePyramids_Click"/>
         <Button x:Name="buttonChangeToGenerator" Content="Change to generator" HorizontalAlignment="Right" Margin="0,200,10.4,0" VerticalAlignment="Top" Width="117" Click="ButtonChangeToGenerator_Click" Height="40"/>
         <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,58,9.4,0" VerticalAlignment="Top" Width="47" Click="ButtonCancel_Click" ToolTip="Cancel solving if takes too long"/>
         <Button x:Name="buttonChangeTheme" Content="Change Theme" HorizontalAlignment="Right" Margin="0,0,9.4,9.6" Width="100" Click="ButtonChangeTheme_Click" Height="22" VerticalAlignment="Bottom"/>

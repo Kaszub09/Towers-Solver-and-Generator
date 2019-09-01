@@ -12,11 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Pyramids
+namespace Towers
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ChooseNumberDialog.xaml
-    /// </summary>
+
     public partial class WindowChooseNumber : Window
     {
         public int result { get; private set; }

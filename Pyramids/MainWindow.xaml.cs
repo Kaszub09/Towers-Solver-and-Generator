@@ -12,22 +12,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pyramids
+namespace Towers
 {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        PagePyramidSolver pagePyramidSolver;
-        PagePyramidGenerator pagePyramidGenerator;
+        PageTowersSolver pageTowersSolver;
+        PageTowersGenerator pageTowersGenerator;
         ResourceDictionary ResDict1;
         public MainWindow()
         {
             InitializeComponent();
-            pagePyramidSolver = new PagePyramidSolver(this);
-            pagePyramidGenerator = new PagePyramidGenerator(this);         
-            Content = pagePyramidSolver;
+            pageTowersSolver = new PageTowersSolver(this);
+            pageTowersGenerator = new PageTowersGenerator(this);         
+            Content = pageTowersSolver;
             ResDict1 = new ResourceDictionary
             {
                 Source = new Uri("/DS3Style.xaml", UriKind.RelativeOrAbsolute)
@@ -36,13 +36,13 @@ namespace Pyramids
 
         public void Change()
         {
-            if(Content == pagePyramidSolver)
+            if(Content == pageTowersSolver)
             {
-                Content = pagePyramidGenerator;
+                Content = pageTowersGenerator;
             }
             else
             {
-                Content = pagePyramidSolver;
+                Content = pageTowersSolver;
             }
         }
 

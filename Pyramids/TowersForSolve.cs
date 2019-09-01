@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace Pyramids
+namespace Towers
 {
-    public class PyramidForSolve
+    public class TowersForSolve
     {
         int[,] board;
         int[,,] isNumberPossible;
@@ -14,7 +14,7 @@ namespace Pyramids
         int size;
         bool horizontally, zeroToSize;
         public CancellationToken token {  get;  set; }
-        public PyramidForSolve(int size, int[] rowTop, int[] rowBottom, int[] rowLeft, int[] rowRight)
+        public TowersForSolve(int size, int[] rowTop, int[] rowBottom, int[] rowLeft, int[] rowRight)
         {
             this.size = size;
             numberOfVisibleColumns = new int[size, 4];

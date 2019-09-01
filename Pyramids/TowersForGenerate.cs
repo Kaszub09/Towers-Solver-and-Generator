@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 
 
-namespace Pyramids
+namespace Towers
 {
 
 
 
-    public class PyramidForGenerate
+    public class TowersForGenerate
     {
         int[,] board;
         int[,] numberOfVisibleColumns;
@@ -30,7 +30,7 @@ namespace Pyramids
         List<number> deletedNumbers;
         List<permutation> permutations;
 
-        public PyramidForGenerate(int size)
+        public TowersForGenerate(int size)
         {
             this.size = size;
             numberOfVisibleColumns = new int[size, 4];

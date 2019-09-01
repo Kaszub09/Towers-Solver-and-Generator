@@ -14,21 +14,19 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Pyramids
+namespace Towers
 {
-    /// <summary>
-    /// Logika interakcji dla klasy PagePyramidSolver.xaml
-    /// </summary>
-    public partial class PagePyramidSolver : Page
+
+    public partial class PageTowersSolver : Page
     {
 
         int size;
         Control[,] listOfControls;
-        PyramidForSolve pyramid;
+        TowersForSolve towers;
         MainWindow parent;
         CancellationTokenSource cancellationTokenSource;
         bool wasCancelled;
-        public PagePyramidSolver(MainWindow parent)
+        public PageTowersSolver(MainWindow parent)
         {
             InitializeComponent();
             size = 0;
@@ -129,9 +127,9 @@ namespace Pyramids
 
         private void UpdateBoard()
         {
-            if (pyramid != null)
+            if (towers != null)
             {
-                int[,] board = pyramid.GetBoard();
+                int[,] board = towers.GetBoard();
                 for (int i = 0; i < size; i++)
                 {
                     for (int j = 0; j < size; j++)
@@ -161,14 +159,14 @@ namespace Pyramids
                     int.Parse(((Button)listOfControls[size + 1, i + 1]).Content.ToString()) : 0;
             }
 
-            pyramid = new PyramidForSolve(size, rowTop, rowBottom, rowLeft, rowRight);
+            towers = new TowersForSolve(size, rowTop, rowBottom, rowLeft, rowRight);
             bool solved;
             wasCancelled = false;
             cancellationTokenSource = new CancellationTokenSource();
-            pyramid.token = cancellationTokenSource.Token;
+            towers.token = cancellationTokenSource.Token;
             var watch = System.Diagnostics.Stopwatch.StartNew();
             ChangeButtonState(false);
-            solved = await Task.Factory.StartNew(() => pyramid.Solve());
+            solved = await Task.Factory.StartNew(() => towers.Solve());
             ChangeButtonState(true);
             watch.Stop();
             if (solved)
@@ -223,12 +221,11 @@ namespace Pyramids
                         c.FontSize -= 2;
                 }
             }
-            Application.Current.Resources.MergedDictionaries.RemoveAt(Application.Current.Resources.MergedDictionaries.Count - 1);
         }
 
         private void ButtonWhatArePyramids_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.wydawnictwologi.pl/piramida");
+            System.Diagnostics.Process.Start("https://dkmgames.com/Towers/");
         }
 
         private void ButtonChangeToGenerator_Click(object sender, RoutedEventArgs e)

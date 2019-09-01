@@ -6,7 +6,7 @@ using System.Linq;
 
 using System.Windows;
 
-namespace Pyramids
+namespace Towers
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml
